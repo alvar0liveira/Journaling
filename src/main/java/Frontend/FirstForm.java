@@ -7,14 +7,9 @@ package Frontend;
 
 import Backend.DBHandler;
 import java.io.File;
-import java.io.FileFilter;
 import java.sql.SQLException;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
-import org.sqlite.mc.SQLiteMCSqlCipherConfig;
-import java.sql.Connection;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
