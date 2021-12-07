@@ -15,6 +15,7 @@ import org.sqlite.mc.SQLiteMCSqlCipherConfig;
 import java.sql.Connection;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -46,13 +47,8 @@ public class FirstForm extends javax.swing.JFrame {
         jPasswordFieldKey = new javax.swing.JPasswordField();
         jButtonChooseDatabase = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jPasswordFieldCreateNewDB = new javax.swing.JPasswordField();
-        jPasswordFieldReTypeDB = new javax.swing.JPasswordField();
         jLabelPathNewDatabase = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jButtonCreateNewDatabase = new javax.swing.JButton();
-        jTextFieldPathToDatabase = new javax.swing.JTextField();
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
@@ -96,21 +92,10 @@ public class FirstForm extends javax.swing.JFrame {
 
         jLabel1.setText("Password:");
 
-        jLabel2.setText("Password");
-
-        jLabel4.setText("Re-TypePassword");
-
         jButtonCreateNewDatabase.setText("Create New Database");
         jButtonCreateNewDatabase.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonCreateNewDatabaseActionPerformed(evt);
-            }
-        });
-
-        jTextFieldPathToDatabase.setText("Path to new database");
-        jTextFieldPathToDatabase.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldPathToDatabaseActionPerformed(evt);
             }
         });
 
@@ -119,36 +104,23 @@ public class FirstForm extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(7, 7, 7)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jPasswordFieldKey, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButtonChooseDatabase, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jTextFieldFilePath, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPasswordFieldReTypeDB)
-                            .addComponent(jPasswordFieldCreateNewDB)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabelPathNewDatabase, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jTextFieldPathToDatabase))))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButtonOpenDatabase, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
-                    .addComponent(jButtonCreateNewDatabase, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jButtonCreateNewDatabase)
+                        .addGap(28, 28, 28)
+                        .addComponent(jLabelPathNewDatabase, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jPasswordFieldKey, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jButtonChooseDatabase, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(jTextFieldFilePath, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonOpenDatabase, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -163,22 +135,16 @@ public class FirstForm extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jPasswordFieldKey, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
-                .addComponent(jLabelPathNewDatabase)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldPathToDatabase, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonCreateNewDatabase))
-                .addGap(10, 10, 10)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jPasswordFieldCreateNewDB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jPasswordFieldReTypeDB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addGap(4, 4, 4))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabelPathNewDatabase)
+                        .addGap(49, 49, 49))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(jButtonCreateNewDatabase)
+                        .addContainerGap(34, Short.MAX_VALUE))))
         );
 
         pack();
@@ -207,34 +173,14 @@ public class FirstForm extends javax.swing.JFrame {
             this.dispose();
         
         } catch (SQLException ex){
-            System.out.println("Error");
+            JOptionPane.showMessageDialog(null, "Wrong Password", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jButtonOpenDatabaseActionPerformed
 
     private void jButtonCreateNewDatabaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreateNewDatabaseActionPerformed
-        
-        String password = String.valueOf(jPasswordFieldCreateNewDB.getPassword());
-        String secPassword = String.valueOf(jPasswordFieldReTypeDB.getPassword());
-        
-        if(!password.equals(secPassword)){
-            // Show message box with warning
-            
-        } else {
-            try {
-                DBHandler dbh = new DBHandler(jTextFieldPathToDatabase.getText().replace("\\", "\\\\") + "/.jourling.db", password);
-                dbh.createDatabase(password);
-            } catch (SQLException ex) {
-                Logger.getLogger(FirstForm.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-        
-        
-       
+        CreateDatabaseForm cdf = new CreateDatabaseForm();
+        cdf.setVisible(true);
     }//GEN-LAST:event_jButtonCreateNewDatabaseActionPerformed
-
-    private void jTextFieldPathToDatabaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPathToDatabaseActionPerformed
-        
-    }//GEN-LAST:event_jTextFieldPathToDatabaseActionPerformed
 
     /**
      * @param args the command line arguments
@@ -279,14 +225,9 @@ public class FirstForm extends javax.swing.JFrame {
     private javax.swing.JDialog jDialog1;
     private javax.swing.JDialog jDialog2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabelPathNewDatabase;
     private javax.swing.JOptionPane jOptionPane1;
-    private javax.swing.JPasswordField jPasswordFieldCreateNewDB;
     private javax.swing.JPasswordField jPasswordFieldKey;
-    private javax.swing.JPasswordField jPasswordFieldReTypeDB;
     private javax.swing.JTextField jTextFieldFilePath;
-    private javax.swing.JTextField jTextFieldPathToDatabase;
     // End of variables declaration//GEN-END:variables
 }
