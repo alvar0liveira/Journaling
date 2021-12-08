@@ -71,6 +71,7 @@ public class MainForm extends javax.swing.JFrame{
         jButtonCreateToday = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Journaling");
 
         jTextAreaNote.setColumns(20);
         jTextAreaNote.setRows(5);
