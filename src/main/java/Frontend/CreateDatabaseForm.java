@@ -137,7 +137,7 @@ public class CreateDatabaseForm extends javax.swing.JFrame {
             
         } else {
             try {
-                DBHandler dbh = new DBHandler(jLabelPath.getText().replace("\\", "\\\\") + File.separator +".jourling.db", password);
+                DBHandler dbh = new DBHandler(jLabelPath.getText() + File.separator +"jourling.db", password);
                 dbh.createDatabase(password); 
                 
                 JOptionPane.showMessageDialog(null, "Database created", "Success", JOptionPane.INFORMATION_MESSAGE);

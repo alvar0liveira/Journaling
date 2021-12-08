@@ -77,7 +77,6 @@ public class DBHandler {
         DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         String todayFormated = today.format(dateFormat);
         
-        
         PreparedStatement statement = con.prepareStatement("SELECT count(*) as rowcount FROM Notes WHERE day = ?");
         statement.setString(1, todayFormated);
         ResultSet rs = statement.executeQuery();
