@@ -6,6 +6,8 @@
 package Frontend;
 
 import Backend.DBHandler;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.sql.Connection; 
 import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
@@ -74,7 +76,9 @@ public class MainForm extends javax.swing.JFrame{
         setTitle("Journaling");
 
         jTextAreaNote.setColumns(20);
+        jTextAreaNote.setLineWrap(true);
         jTextAreaNote.setRows(5);
+        jTextAreaNote.setWrapStyleWord(true);
         jTextAreaNote.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         jScrollPane1.setViewportView(jTextAreaNote);
 
@@ -162,9 +166,7 @@ public class MainForm extends javax.swing.JFrame{
         } catch (SQLException ex) {
             Logger.getLogger(MainForm.class.getName()).log(Level.SEVERE, null, ex);
         }
-        this.populateDaysList();
-        
-        
+        this.populateDaysList(); 
     }//GEN-LAST:event_jButtonCreateTodayActionPerformed
 
     /**
@@ -202,6 +204,8 @@ public class MainForm extends javax.swing.JFrame{
         });
         */
     }
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCreateToday;
