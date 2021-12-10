@@ -35,6 +35,15 @@ public class DBHandler {
     
     }
     
+    public void close(){
+        
+        try {
+            this.con.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(DBHandler.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     public void createDatabase(String key) throws SQLException{
         Statement smt = con.createStatement();
         smt.executeUpdate("DROP TABLE IF EXISTS Notes");
