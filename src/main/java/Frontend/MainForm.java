@@ -68,6 +68,7 @@ public class MainForm extends javax.swing.JFrame{
         jListDays = new javax.swing.JList<>();
         jButtonSave = new javax.swing.JButton();
         jButtonCreateToday = new javax.swing.JButton();
+        jLabelWordCount = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Journaling");
@@ -77,6 +78,11 @@ public class MainForm extends javax.swing.JFrame{
         jTextAreaNote.setRows(5);
         jTextAreaNote.setWrapStyleWord(true);
         jTextAreaNote.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jTextAreaNote.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextAreaNoteKeyTyped(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTextAreaNote);
 
         jListDays.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -104,18 +110,22 @@ public class MainForm extends javax.swing.JFrame{
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButtonCreateToday, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabelWordCount, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButtonCreateToday, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(350, 350, 350)
-                        .addComponent(jButtonSave, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 332, Short.MAX_VALUE)
+                                .addComponent(jButtonSave, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane1))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -126,9 +136,11 @@ public class MainForm extends javax.swing.JFrame{
                     .addComponent(jButtonSave)
                     .addComponent(jButtonCreateToday))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane1)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelWordCount, javax.swing.GroupLayout.DEFAULT_SIZE, 14, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -165,6 +177,12 @@ public class MainForm extends javax.swing.JFrame{
         }
         this.populateDaysList(); 
     }//GEN-LAST:event_jButtonCreateTodayActionPerformed
+
+    private void jTextAreaNoteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextAreaNoteKeyTyped
+        String text = jTextAreaNote.getText();
+        String[] words = text.split("\\s+");
+        jLabelWordCount.setText("Words: " + words.length);
+    }//GEN-LAST:event_jTextAreaNoteKeyTyped
 
     /**
      * @param args the command line arguments
@@ -207,6 +225,7 @@ public class MainForm extends javax.swing.JFrame{
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCreateToday;
     private javax.swing.JButton jButtonSave;
+    private javax.swing.JLabel jLabelWordCount;
     private javax.swing.JList<String> jListDays;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
