@@ -57,7 +57,7 @@ public class DBHandler {
     public List<String> getDays() throws SQLException{
         ArrayList<String> listOfDays = new ArrayList<>();
         Statement smt = con.createStatement();
-        ResultSet rs = smt.executeQuery("Select day From Notes;");
+        ResultSet rs = smt.executeQuery("Select day From Notes ORDER BY day DESC;");
         while(rs.next()){
             listOfDays.add(rs.getString("day"));
         }
