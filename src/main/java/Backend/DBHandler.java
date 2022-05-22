@@ -81,7 +81,7 @@ public class DBHandler {
     public void createToday() throws SQLException{
        
         LocalDateTime today = LocalDateTime.now();
-        DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy/MM/dd");
         String todayFormated = today.format(dateFormat);
         
         PreparedStatement statement = con.prepareStatement("SELECT count(*) as rowcount FROM Notes WHERE day = ?");
